@@ -35,7 +35,8 @@ new Vue({
         this.monsterAttacks();
     },
     giveUp: function() {
-
+        alert('you fucking chump pussy bitch...')
+        this.gameIsRunning = false;
     },
     monsterAttacks: function() {
       this.playerHealth -= this.calculateDamage(5, 12);
