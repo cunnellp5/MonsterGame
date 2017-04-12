@@ -38,11 +38,8 @@ new Vue({
         this.monsterAttacks();
     },
     heal: function() {
-        if (this.playerHealth <= 90) {
-            this.playerHealth += 10;
-        } else {
-          this.playerHealth = 100;
-        }
+        this.playerHealth <= 90 ? this.playerHealth += 10 : this.playerHealth = 100;
+
         this.turns.unshift({
           isPlayer: true,
           text: 'Player heals for 10'
@@ -67,18 +64,12 @@ new Vue({
     },
     checkWin: function() {
         if (this.monsterHealth <= 0) {
-            if (confirm('You won, you stinky butthole! 🙃 New Game?')) {
-              this.startGame();
-            } else {
-              this.gameIsRunning = false;
-            }
+           confirm('You won, you stinky butthole! 🙃 New Game?') ? this.startGame() : this.gameIsRunning = false;
+
           return true;
         } else if (this.playerHealth <= 0) {
-            if (confirm('You got fucked by a monster!! 🤕  New Game?')) {
-              this.startGame();
-            } else {
-              this.gameIsRunning = false;
-            }
+            confirm('You got fucked by a monster!! 🤕  New Game?') ? this.startGame() : this.gameIsRunning = false;
+
             return true;
         }
         return false;
